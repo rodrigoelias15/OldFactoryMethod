@@ -1,6 +1,6 @@
 package com.company;
 
-public interface Servico {
+public interface IServico {
     String executar();
     String cancelar();
 }
