@@ -2,10 +2,10 @@ package com.company;
 
 public class AdicionarProdutoEstoque implements IServico {
     public String executar() {
-        return "Trancamento efetivado";
+        return "Produto adicionado com sucesso!";
     }
 
     public String cancelar() {
-        return "Trancamento cancelado";
+        return "Produto não adicionado.";
     }
 }
