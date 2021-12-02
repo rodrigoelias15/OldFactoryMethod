@@ -10,12 +10,12 @@ class AcessarInfoFuncionarioTest {
     @Test
     void deveAcessarInfoFuncionario() {
         IServico servico = ServicoFactory.obterServico("AcessarInfoFuncionario");
-        assertEquals("Informações do Funcionário Acessadas", servico.executar());
+        assertEquals("Acessando informações do funcionário.", servico.executar());
     }
 
     @Test
     void deveCancelarInfoFuncionario() {
         IServico servico = ServicoFactory.obterServico("AcessarInfoFuncionario");
-        assertEquals("Informações não acessadas", servico.cancelar());
+        assertEquals("Informações não acessadas.", servico.cancelar());
     }
 }
