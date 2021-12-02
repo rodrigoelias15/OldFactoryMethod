@@ -1,4 +1,4 @@
-package com.company;
+package main.java.com.company;
 
 public class AdicionarProdutoEstoque implements IServico {
     public String executar() {
