@@ -1,20 +1,31 @@
 package test;
 
 import main.java.com.company.IServico;
+import main.java.com.company.ServicoFactory;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.fail;
 
 class ServicoFactoryTest {
-    public static IServico obterServico(String servico) {
-        Class classe = null;
-        Object objeto = null;
+
+    @Test
+    void deveRetornarExcecaoParaServicoInexistente() {
         try {
-            classe = Class.forName("java.com.company.Servico" + servico);
-            objeto = classe.newInstance();
-        } catch (Exception ex) {
-            throw new IllegalArgumentException("Serviço inexistente");
+            IServico servico = ServicoFactory.obterServico("Serviço Indisponível");
+            fail();
+        } catch (IllegalArgumentException e) {
+            assertEquals("Serviço inexistente", e.getMessage());
         }
-        if (!(objeto instanceof IServico)) {
-            throw new IllegalArgumentException("Serviço inválido");
+    }
+
+    @Test
+    void deveRetornarExcecaoParaServicoInvalido() {
+        try {
+            IServico servico = ServicoFactory.obterServico("Informação não encontrada");
+            fail();
+        } catch (IllegalArgumentException e) {
+            assertEquals("Serviço inválido", e.getMessage());
         }
-        return (IServico) objeto;
     }
 }
